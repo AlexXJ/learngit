@@ -1,0 +1,18 @@
+#All the code come from www.liaoxuefeng.com
+
+~$ mkdir learngit
+~$ cd learngit
+~/learngit$ pwd
+/home/alex/learngit
+
+~/learngit$ git init //initialize the git on computer
+
+~/learngit$ git add readme.txt //add a readme file in git,file should be in /learngit/
+
+~/learngit$ git commit -m "wrote a readme file" //-m means the paramater is the discription of the former 'add's
+
+~/learngit$ git add file1
+~/learngit$ git add file2 file3
+~/learngit$ git commit -m "add 3 files"
+
+
