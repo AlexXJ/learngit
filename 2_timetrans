@@ -20,4 +20,6 @@ index b41079b..ac3e649 100644
  Git is a free software
 -All context is from liaoxuefeng.com
 +All content is from liaoxuefeng.com
+#This means you should use 'git commit -m' to make git clean
+
 
