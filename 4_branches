@@ -181,3 +181,32 @@ remote: Resolving deltas: 100% (2/2), done.
 To git@github.com:AlexXJ/learngit.git
    af87a00..25ee29f  master -> master
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+When you want to delete a new feature branch witch has already 'add' and 'commit' but not 'push' yet
+Use 'git branch -D feature-whatever' to delete the branch permenately
+Always remmamber to develop a new feature in a new branch, for the safety of the whole project and some unsurtain factors
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+alex@factory:~/learngit$ git branch
+* dev
+  master
+alex@factory:~/learngit$ git checkout -b feature-vulcan
+Switched to a new branch 'feature-vulcan'
+alex@factory:~/learngit$ git add vulcan.py 
+alex@factory:~/learngit$ git commit -m "add feature vulcan"
+[feature-vulcan db05c1e] add feature vulcan
+ 1 file changed, 1 insertion(+)
+ create mode 100644 vulcan.py
+alex@factory:~/learngit$ git branch
+  dev
+* feature-vulcan
+  master
+alex@factory:~/learngit$ git checkout dev
+Switched to branch 'dev'
+alex@factory:~/learngit$ git branch -d feature-vulcan 
+error: The branch 'feature-vulcan' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D feature-vulcan'.
+alex@factory:~/learngit$ git branch -D feature-vulcan
+Deleted branch feature-vulcan (was db05c1e).
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
