@@ -98,9 +98,11 @@ merge
 
 
 When you find a bug and need to deal with it but you still need to working on the present branches
-1, git stash
+1, 'git stash'
 2, make a new issue branch and fix the bug
-3, git stash apply and continue your work
+3, 'git stash apply' (can add the version'stash@{0}' to apply the specific one) use 'git stash list' to check the stashes
+4, 'git stash drop' or 'git stash pop' to delete the stash
+5, continue your work
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 alex@factory:~/learngit$ git add 4_branches 
 alex@factory:~/learngit$ git status
