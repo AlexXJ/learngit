@@ -1,0 +1,17 @@
+Make tag(like'V1.0') for your project
+You can get any version in git
+++++++++++++++++++++++++++++++++++++++++
+alex@factory:~/learngit$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+alex@factory:~/learngit$ git branch
+  dev
+* master
+alex@factory:~/learngit$ git tag v1.4
+alex@factory:~/learngit$ git tag v1.1 405f9edb
+fatal: Failed to resolve '405f9edb' as a valid ref.
+alex@factory:~/learngit$ git tag v1.1 495f9edb
+alex@factory:~/learngit$ git tag
+v1.1
+v1.4
+++++++++++++++++++++++++++++++++++++++++
