@@ -1,0 +1,2 @@
+If there is a bug and need tu be eliminated, use 'git stash' to hold what you are working on, and fix it in other branch.
+
