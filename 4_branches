@@ -1,0 +1,96 @@
+creat a new branch named 'dev'
+$ git checkout -b dev
+	=       $git branch dev
+		$git checkout dev
+
+check the branches
+$git branch
+
+
+change the branch back to master
+$git checkout master
+
+
+merge 'dev' to 'master'
+$git merge dev
+
+delete branch 'dev'
+$git branch -d dev
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+alex@factory:~/gitskills$ git checkout -b dev
+fatal: A branch named 'dev' already exists.
+alex@factory:~/gitskills$ git branch
+* dev
+  master
+alex@factory:~/gitskills$ git add 4_branches 
+alex@factory:~/gitskills$ git commit -m "learn to make a branch callde dev"
+[dev 13028c2] learn to make a branch callde dev
+ 1 file changed, 18 insertions(+)
+ create mode 100644 4_branches
+alex@factory:~/gitskills$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+alex@factory:~/gitskills$ git merge dev
+Updating bb55fc7..13028c2
+Fast-forward
+ 4_branches | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+ create mode 100644 4_branches
+alex@factory:~/gitskills$ git branch -d dev
+Deleted branch dev (was 13028c2).
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+when there is conflict between branches
+
+Creating branches is quick and simple
+
+#This is git pointed for me! It's f**king great!
+<<<<<<< HEAD
+Creating branches is quick & simple
+=======
+Creating branches is quick AND simple
+>>>>>>> feature1
+
+This is MY command line
+alex@factory:~/gitskills$ git checkout -b feature1
+Switched to a new branch 'feature1'
+alex@factory:~/gitskills$ vi 4_branches 
+alex@factory:~/gitskills$ git add 4_branches 
+alex@factory:~/gitskills$ git commit -m "AND"
+[feature1 312de98] AND
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alex@factory:~/gitskills$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+alex@factory:~/gitskills$ vi 4_branches 
+alex@factory:~/gitskills$ git add 4_branches 
+alex@factory:~/gitskills$ git commit -m "&"
+[master 2e09dc7] &
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+alex@factory:~/gitskills$ git merge feature1
+Auto-merging 4_branches
+CONFLICT (content): Merge conflict in 4_branches
+Automatic merge failed; fix conflicts and then commit the result.
+alex@factory:~/gitskills$ vi 4_branches 
+alex@factory:~/gitskills$ git add 4_branches
+alex@factory:~/gitskills$ git commit -m "comflict"
+[master 7079e51] comflict
+alex@factory:~/gitskills$ git log --graph --pretty=oneline --abbrev-commit
+*   7079e51 comflict
+|\  
+| * 312de98 AND
+* | 2e09dc7 &
+|/  
+* 909b427 propare for Conflict
+* 13028c2 learn to make a branch callde dev
+* bb55fc7 Initial commit
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+merge 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
