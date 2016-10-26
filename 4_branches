@@ -94,3 +94,88 @@ alex@factory:~/gitskills$ git log --graph --pretty=oneline --abbrev-commit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 merge 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+When you find a bug and need to deal with it but you still need to working on the present branches
+1, git stash
+2, make a new issue branch and fix the bug
+3, git stash apply and continue your work
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+alex@factory:~/learngit$ git add 4_branches 
+alex@factory:~/learngit$ git status
+On branch dev
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   4_branches
+
+alex@factory:~/learngit$ git branch
+* dev
+  master
+alex@factory:~/learngit$ git stash
+Saved working directory and index state WIP on dev: 2d331d8 creat a repository in github.com, and make a link from local computer
+HEAD is now at 2d331d8 creat a repository in github.com, and make a link from local computer
+alex@factory:~/learngit$ git status
+On branch dev
+nothing to commit, working directory clean
+alex@factory:~/learngit$ git checkout mastar
+error: pathspec 'mastar' did not match any file(s) known to git.
+alex@factory:~/learngit$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+alex@factory:~/learngit$ vi issue101
+alex@factory:~/learngit$ git add issue101 
+alex@factory:~/learngit$ git commit -m "fix issue 101"
+[issue101 25ee29f] fix issue 101
+ 1 file changed, 1 insertion(+)
+ create mode 100644 issue101
+alex@factory:~/learngit$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+alex@factory:~/learngit$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+alex@factory:~/learngit$ git merge issue101 
+Updating 49081e7..25ee29f
+Fast-forward
+ issue101 | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 issue101
+alex@factory:~/learngit$ git branch -d issue101 
+Deleted branch issue101 (was 25ee29f).
+alex@factory:~/learngit$ git checkout dev
+Switched to branch 'dev'
+alex@factory:~/learngit$ git status
+On branch dev
+nothing to commit, working directory clean
+alex@factory:~/learngit$ git stash list
+stash@{0}: WIP on dev: 2d331d8 creat a repository in github.com, and make a link from local computer
+alex@factory:~/learngit$ git stash apply
+On branch dev
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   4_branches
+
+alex@factory:~/learngit$ git commit -m "move 4_branches from repository gitskills to learngit"
+[dev 8c3c33f] move 4_branches from repository gitskills to learngit
+ 1 file changed, 96 insertions(+)
+ create mode 100644 4_branches
+alex@factory:~/learngit$ git status
+On branch dev
+nothing to commit, working directory clean
+alex@factory:~/learngit$ git push origin master
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 1.48 KiB | 0 bytes/s, done.
+Total 10 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To git@github.com:AlexXJ/learngit.git
+   af87a00..25ee29f  master -> master
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
